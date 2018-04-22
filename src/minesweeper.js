@@ -18,5 +18,5 @@ console.log('This is what a sample gameboard would look like:');
 
 // Log the sample gameboard to the console
 console.log(guessLine);
-console.log(blankLine);
+console.log(bombLine);
 console.log(blankLine);
