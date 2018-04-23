@@ -1,22 +1,13 @@
-// Create an empty gameboard line
-const blankLine = '  |   |  ';
+const printBoard = board => {
+  console.log('Current Board:');
+  console.log(board[0].join(' | '));
+  console.log(board[1].join(' | '));
+  console.log(board[2].join(' | '));
+}
 
-// log to console a message about the gameboard
-console.log('This is what an empty gameboard would look like:');
+let board = [[' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' ']];
 
-// Log the sample gameboard to console
-console.log(blankLine);
-console.log(blankLine);
-console.log(blankLine);
-
-// build sample const
-const guessLine = '1 |   |  ';
-const bombLine = '  | B |  ';
-
-// Log message about sample gameboard
-console.log('This is what a sample gameboard would look like:');
-
-// Log the sample gameboard to the console
-console.log(guessLine);
-console.log(bombLine);
-console.log(blankLine);
+printBoard(board);
+board[0][1] = '1';
+board[2][2] = 'B';
+printBoard(board);
