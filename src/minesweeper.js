@@ -48,10 +48,12 @@ const generateBombBoard = (numberOfRows, numberOfColumns, numberOfBombs) => {
     // Get a random column number
     let randomColumnIndex = Math.floor(Math.random() * Math.floor(numberOfColumns));
 
-    // TODO: create conditional logic that prevents placing duplicate bombs
-    // Place the bomb at the selected location and increment the bomb counter
-    board[randomRowIndex][randomColumnIndex] = 'B';
-    numberOfBombsPlaced++;
+    // Check to make sure a bomb does not exist on this spot
+    if board[randomRowIndex][randomColumnIndex] !== 'B') {
+      // Place the bomb at the selected location and increment the bomb counter
+      board[randomRowIndex][randomColumnIndex] = 'B';
+      numberOfBombsPlaced++;
+    }
   }
   // Return the completed board
   return board;
