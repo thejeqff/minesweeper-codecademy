@@ -59,6 +59,20 @@ const generateBombBoard = (numberOfRows, numberOfColumns, numberOfBombs) => {
   return board;
 };
 
+// Creates a function that checks squares adjacent to a selected tile
+// TODO: finish function logic, including adding interactivity components
+// TODO: add necessary return parameter
+const getNumberOfNeighborBombs = (bombBoard, rowIndex, columnIndex) => {
+  // Constant that identifies all possible offset (adjacent) squares
+  // to selected square
+  const neighborOffsets = [[1,1],[1,0],[1,-1],[0,1],[0,-1],[-1,1],[-1,0],[-1,-1]];
+  // Constants that get the board dimensions
+  const numberOfRows = bombBoard.length;
+  const numberOfColumns = bombboard[0].length;
+  // Variable that determines the number of adjacent bombs
+  let numberOfBombs = 0;
+};
+
 // Create a function to print boards
 const printBoard = (board) => {
   // Join the columns together using pipes, the join the rows on different lines
