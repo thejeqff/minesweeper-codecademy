@@ -63,14 +63,14 @@ const generateBombBoard = (numberOfRows, numberOfColumns, numberOfBombs) => {
 const getNumberOfNeighborBombs = (bombBoard, rowIndex, columnIndex) => {
   // Constant that identifies all possible offset (adjacent) squares
   // to selected square
-  const neighborOffsets = [[rowIndex + 1,columnIndex + 1],
-                           [rowIndex + 1, columnIndex],
-                           [rowIndex + 1,columnIndex - 1],
-                           [rowIndex, columnIndex + 1],
-                           [rowIndex, columnIndex - 1],
-                           [rowIndex - 1, columnIndex + 1],
-                           [rowIndex - 1, columnIndex],
-                           [rowIndex - 1, columnIndex - 1]];
+  const neighborOffsets = [[1, 1],
+                           [1, 0],
+                           [1, -1],
+                           [0, 1],
+                           [0, -1],
+                           [-1, 1],
+                           [-1, 0],
+                           [-1, -1]];
   // Constants that get the board dimensions
   const numberOfRows = bombBoard.length;
   const numberOfColumns = bombBoard[0].length;
@@ -78,8 +78,8 @@ const getNumberOfNeighborBombs = (bombBoard, rowIndex, columnIndex) => {
   let numberOfBombs = 0;
   // Check each offset to determine the number of bombs next to it
   neighborOffsets.forEach(offset => {
-    const neighborRowIndex = offset[0];
-    const neighborColumnIndex = offset[1];
+    const neighborRowIndex = rowIndex + offset[0];
+    const neighborColumnIndex = columnIndex + offset[1];
     // Check to make sure that the array position is valid
     if (neighborRowIndex >= 0 && neighborRowIndex < numberOfRows &&
         neighborColumnIndex >= 0 && neighborColumnIndex < numberOfColumns) {
