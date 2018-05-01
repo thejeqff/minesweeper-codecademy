@@ -1,16 +1,23 @@
 // Create Game class
 class Game {
+  // Constructor: creates a board based on passed in parameters
+  // number of rows, number of columns, and number of bombs
   constructor(numberOfRows, numberOfColumns, numberOfBombs) {
     this._board = new Board(numberOfRows, numberOfColumns, numberOfBombs);
   }
 
+  // Method that plays a move on the board
   playMove(rowIndex, columnIndex) {
+    // flips a tile on the board
     this._board.flipTile(rowIndex, columnIndex);
+     // If the tile flips over a bomb, end the game
     if (this._board.playerBoard[rowIndex][columnIndex] === 'B') {
       console.log('Sorry, you hit a bomb. Game over!');
       this._board.print();
+      // Else if the last safe tile has been flipped, wint he game
     } else if (!this._board.hasSafeTiles()) {
       console.log('Congratulations, you won!');
+      // Otherwise print the current board to the console
     } else {
       console.log('Current board:');
       this._board.print();
