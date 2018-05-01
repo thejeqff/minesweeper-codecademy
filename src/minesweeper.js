@@ -68,14 +68,14 @@ class Board {
      return this._numberOfTiles !== this._numberofBombs;
   }
 
-  // Create a function to print boards
+  // Method to print the player board
   print() {
     // Join the columns together using pipes, the join the rows on different lines
     // and log the board to the console
     console.log(this._playerBoard.map(row => row.join(' | ')).join('\n'));
   }
 
-  // Create the function to generate the player generateBombBoard
+  // Method the function to generate the player generateBombBoard
   // Returns a fully generated player board
   static generatePlayerBoard(numberOfRows, numberOfColumns) {
     // create the variable to hold the board
@@ -97,7 +97,7 @@ class Board {
     return board;
   }
 
-  // Function creates the game board that holds the bomb locations
+  // Method creates the game board that holds the bomb locations
   // Returns a completed game board with bomb locations
   static generateBombBoard(numberOfRows, numberOfColumns, numberOfBombs) {
     // create the variable to hold the board
