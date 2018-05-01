@@ -1,12 +1,32 @@
+// Create Game class
+class Game {
+  constructor(numberOfRows, numberOfColumns, numberOfBombs) {
+    this._board = new Board(numberOfRows, numberOfColumns, numberOfBombs);
+  }
+
+  playMove(rowIndex, columnIndex) {
+    this._board.flipTile(rowIndex, columnIndex);
+    if (this._board.playerBoard[rowIndex][columnIndex] === 'B') {
+      console.log('Sorry, you hit a bomb. Game over!');
+      this._board.print();
+    } else if (!this._board.hasSafeTiles()) {
+      console.log('Congratulations, you won!');
+    } else {
+      console.log('Current board:');
+      this._board.print();
+    }
+  }
+}
+
 // Create Board class
 class Board {
   // constructor taht assign parameter values for rows, columns, and numberOfBombs
   // and generates the player board and the bomb board
   constructor(numberOfRows, numberOfColumns, numberOfBombs) {
-    this._numberofBombs = numberOfBombs;
+    this._numberOfBombs = numberOfBombs;
     this._numberOfTiles = numberOfRows * numberOfColumns;
-    this._playerBoard = generatePlayerBoard(numberOfRows, numberOfColumns);
-    this._bombBoard = generateBombBoard(numberOfRows, numberOfColumns, numberOfBombs);
+    this._playerBoard = Board.generatePlayerBoard(numberOfRows, numberOfColumns);
+    this._bombBoard = Board.generateBombBoard(numberOfRows, numberOfColumns, numberOfBombs);
   }
 
   // Get method for the player board
@@ -64,8 +84,10 @@ class Board {
     return numberOfBombs;
   }
 
+  // method that calculates how many "safe tiles" remain on the Board
+  // to determine if the board has been won yet
   hasSafeTiles() {
-     return this._numberOfTiles !== this._numberofBombs;
+     return this._numberOfTiles !== this._numberOfBombs;
   }
 
   // Method to print the player board
@@ -117,7 +139,7 @@ class Board {
     }
     // Place randomly generated bombs on the board
     // Track the number of bombs placed
-    numberOfBombsPlaced = 0;
+    let numberOfBombsPlaced = 0;
     // Continue looping until all bombs have been placed on the board
     while (numberOfBombsPlaced < numberOfBombs) {
       // Get a random row number
@@ -135,22 +157,19 @@ class Board {
     // Return the completed board
     return board;
   }
-
 }
 
-
-
-
-
-// Test the functions, creating a 3 x 4 player board
-// and a bomb board with 5 bombs and print them
-let playerBoard = generatePlayerBoard(3,4);
-let bombBoard = generateBombBoard(3,4,5);
-console.log("Player board: ");
-printBoard(playerBoard);
-console.log("Bomb board: ");
-printBoard(bombBoard);
-// Testing tile flips
-flipTile(playerBoard, bombBoard, 1, 2);
-console.log('Updated player board:');
-printBoard(playerBoard);
+// // Test the functions, creating a 3 x 4 player board
+// // and a bomb board with 5 bombs and print them
+// let playerBoard = generatePlayerBoard(3,4);
+// let bombBoard = generateBombBoard(3,4,5);
+// console.log("Player board: ");
+// printBoard(playerBoard);
+// console.log("Bomb board: ");
+// printBoard(bombBoard);
+// // Testing tile flips
+// flipTile(playerBoard, bombBoard, 1, 2);
+// console.log('Updated player board:');
+// printBoard(playerBoard);
+let g = new Game(3,3,3);
+g.playMove(0,0);
