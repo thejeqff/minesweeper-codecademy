@@ -27,7 +27,7 @@ class Game {
 
 // Create Board class
 class Board {
-  // constructor taht assign parameter values for rows, columns, and numberOfBombs
+  // constructor that assign parameter values for rows, columns, and numberOfBombs
   // and generates the player board and the bomb board
   constructor(numberOfRows, numberOfColumns, numberOfBombs) {
     this._numberOfBombs = numberOfBombs;
