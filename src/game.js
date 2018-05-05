@@ -30,6 +30,7 @@ class Game {
       // Else if the last safe tile has been flipped, wint he game
     } else if (!this._board.hasSafeTiles()) {
       console.log('Congratulations, you won!');
+      this._board.print();
       // Otherwise print the current board to the console
     } else {
       console.log('Current board:');

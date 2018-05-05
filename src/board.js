@@ -72,7 +72,7 @@ export class Board {
 
   // Method to print the player board
   print() {
-    // Join the columns together using pipes, the join the rows on different lines
+    // Join the columns together using pipes, then join the rows on different lines
     // and log the board to the console
     console.log(this._playerBoard.map(row => row.join(' | ')).join('\n'));
   }
