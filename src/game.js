@@ -9,7 +9,7 @@
 // When done run `.exit`
 
 // import the board class
-import Board from './board.js';
+import { Board } from './board';
 
 // Create Game class
 class Game {
