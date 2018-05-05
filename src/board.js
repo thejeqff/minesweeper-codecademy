@@ -1,32 +1,5 @@
-// Create Game class
-class Game {
-  // Constructor: creates a board based on passed in parameters
-  // number of rows, number of columns, and number of bombs
-  constructor(numberOfRows, numberOfColumns, numberOfBombs) {
-    this._board = new Board(numberOfRows, numberOfColumns, numberOfBombs);
-  }
-
-  // Method that plays a move on the board
-  playMove(rowIndex, columnIndex) {
-    // flips a tile on the board
-    this._board.flipTile(rowIndex, columnIndex);
-     // If the tile flips over a bomb, end the game
-    if (this._board.playerBoard[rowIndex][columnIndex] === 'B') {
-      console.log('Sorry, you hit a bomb. Game over!');
-      this._board.print();
-      // Else if the last safe tile has been flipped, wint he game
-    } else if (!this._board.hasSafeTiles()) {
-      console.log('Congratulations, you won!');
-      // Otherwise print the current board to the console
-    } else {
-      console.log('Current board:');
-      this._board.print();
-    }
-  }
-}
-
 // Create Board class
-class Board {
+export class Board {
   // constructor that assign parameter values for rows, columns, and numberOfBombs
   // and generates the player board and the bomb board
   constructor(numberOfRows, numberOfColumns, numberOfBombs) {
@@ -165,18 +138,3 @@ class Board {
     return board;
   }
 }
-
-// // Test the functions, creating a 3 x 4 player board
-// // and a bomb board with 5 bombs and print them
-// let playerBoard = generatePlayerBoard(3,4);
-// let bombBoard = generateBombBoard(3,4,5);
-// console.log("Player board: ");
-// printBoard(playerBoard);
-// console.log("Bomb board: ");
-// printBoard(bombBoard);
-// // Testing tile flips
-// flipTile(playerBoard, bombBoard, 1, 2);
-// console.log('Updated player board:');
-// printBoard(playerBoard);
-let g = new Game(3,3,3);
-g.playMove(0,0);
